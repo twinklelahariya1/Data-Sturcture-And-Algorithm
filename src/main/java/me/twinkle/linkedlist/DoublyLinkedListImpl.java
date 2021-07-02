@@ -6,12 +6,11 @@ public class DoublyLinkedListImpl {
 
     private DoublyListNode tail;
 
-    private int size;
+    private int size = 0;
 
     public void insertToFront(DoublyListNode node) {
         head.setPrevious(node);
         node.setNext(head);
-        node.setPrevious(null);
         size++;
     }
 
@@ -20,5 +19,17 @@ public class DoublyLinkedListImpl {
         head.setPrevious(null);
         size--;
 
+    }
+
+    public void insertToEnd(DoublyListNode node) {
+        tail.setNext(node);
+        node.setPrevious(tail);
+        size++;
+    }
+
+    public void deleteFromEnd(DoublyListNode node) {
+        tail = tail.getPrevious();
+        tail.setNext(null);
+        size--;
     }
 }
