@@ -2,16 +2,12 @@ package me.twinkle.linkedlist;
 
 public class DoublyListNode {
 
-    private int id;
+    private final int id;
     private DoublyListNode next;
     private DoublyListNode previous;
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public DoublyListNode getNext() {
@@ -34,8 +30,5 @@ public class DoublyListNode {
         this.id = id;
         this.next = next;
         this.previous = previous;
-    }
-
-    public DoublyListNode() {
     }
 }
