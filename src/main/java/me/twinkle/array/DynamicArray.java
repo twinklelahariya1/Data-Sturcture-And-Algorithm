@@ -7,8 +7,8 @@ public class DynamicArray {
         new DynamicArray().run();
     }
 
-    int index = 0;
 
+    int index = 0;
     int[] array = new int[2];
 
     private void run() {
@@ -21,7 +21,7 @@ public class DynamicArray {
 
     }
 
-    private int[] addElement(int value, int[] array) {
+    public int[] addElement(int value, int[] array) {
         if (index == array.length)
             array = growArray(array, index);
 
@@ -29,8 +29,7 @@ public class DynamicArray {
         return array;
     }
 
-    private int[] growArray(int[] array, int index) {
+    public int[] growArray(int[] array, int index) {
         return Arrays.copyOf(array, index * 2);
     }
-
 }
