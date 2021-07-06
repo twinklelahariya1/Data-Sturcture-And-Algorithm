@@ -7,7 +7,7 @@ public class StackLinkedListImpl {
 
     }
 
-    ListNode head = new ListNode(-1);
+    ListNode<Integer> head = new ListNode<>(-1);
 
     private void run() {
 
@@ -23,18 +23,18 @@ public class StackLinkedListImpl {
 
     }
 
-    private int pop_() {
-        if (head == null || head.getNumber() == -1)
+    private Integer pop_() {
+        if (head == null || head.getNumber().equals(-1))
             return -1;
         else {
-            int val = head.getNumber();
+            Integer val = head.getNumber();
             head = head.getNext();
             return val;
         }
     }
 
-    private void push(int value) {
-        ListNode valueNode = new ListNode(value);
+    private void push(Integer value) {
+        ListNode<Integer> valueNode = new ListNode<>(value);
         valueNode.setNext(head);
         head = valueNode;
     }

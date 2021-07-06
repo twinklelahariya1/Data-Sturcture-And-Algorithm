@@ -1,22 +1,22 @@
 package me.twinkle.stack;
 
-class ListNode {
-    private final int number;
-    private ListNode next;
+class ListNode<T> {
+    private final T number;
+    private ListNode<T> next;
 
-    public ListNode(int number) {
+    public ListNode(T number) {
         this.number = number;
     }
 
-    public ListNode getNext() {
+    public ListNode<T> getNext() {
         return next;
     }
 
-    public void setNext(ListNode next) {
+    public void setNext(ListNode<T> next) {
         this.next = next;
     }
 
-    public int getNumber() {
+    public T getNumber() {
         return number;
     }
 }
