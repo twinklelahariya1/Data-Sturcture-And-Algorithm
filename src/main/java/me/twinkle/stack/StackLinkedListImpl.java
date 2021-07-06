@@ -1,5 +1,7 @@
 package me.twinkle.stack;
 
+import me.twinkle.listnode.ListNode;
+
 public class StackLinkedListImpl {
     public static void main(String[] args) {
 

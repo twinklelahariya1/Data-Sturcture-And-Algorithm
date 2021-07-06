@@ -1,6 +1,6 @@
-package me.twinkle.stack;
+package me.twinkle.listnode;
 
-class ListNode<T> {
+public class ListNode<T> {
     private final T number;
     private ListNode<T> next;
 
