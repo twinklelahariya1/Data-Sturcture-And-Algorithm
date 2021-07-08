@@ -1,15 +1,15 @@
 package me.twinkle.array;
 
-import java.util.Arrays;
+import me.twinkle.util.DynamicArray;
 
-public class DynamicArray {
+public class DynamicArrayImpl {
     public static void main(String[] args) {
-        new DynamicArray().run();
+        new DynamicArrayImpl().run();
     }
 
-
+    DynamicArray<Integer> dynamicArray = new DynamicArray<Integer>();
     int index = 0;
-    int[] array = new int[2];
+    Integer[] array = new Integer[2];
 
     private void run() {
 
@@ -21,15 +21,11 @@ public class DynamicArray {
 
     }
 
-    public int[] addElement(int value, int[] array) {
+    public Integer[] addElement(int value, Integer[] array) {
         if (index == array.length)
-            array = growArray(array, index);
+            array = dynamicArray.growArray(array, index);
 
         array[index++] = value;
         return array;
-    }
-
-    public int[] growArray(int[] array, int index) {
-        return Arrays.copyOf(array, index * 2);
     }
 }
