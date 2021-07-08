@@ -10,23 +10,23 @@ public class QueueService {
 
     private void linkedListImpl() {
         Queue<Integer> queue = new QueueLinkedListImpl<>();
-        queue.push(5);
-        queue.push(6);
+        queue.enQueue(5);
+        queue.enQueue(6);
         System.out.println(queue.size());
-        queue.pop();
-        queue.push(33);
-        queue.push(56);
+        queue.deQueue();
+        queue.enQueue(33);
+        queue.enQueue(56);
         System.out.println(queue.size());
     }
 
     private void arrayImpl() {
         Queue<Integer> queue = new QueueArrayImpl<>();
-        queue.push(5);
-        queue.push(6);
+        queue.enQueue(5);
+        queue.enQueue(6);
         System.out.println(queue.size());
-        queue.pop();
-        queue.push(33);
-        queue.push(56);
+        queue.deQueue();
+        queue.enQueue(33);
+        queue.enQueue(56);
         System.out.println(queue.size());
     }
 }

@@ -2,43 +2,35 @@ package me.twinkle.stack;
 
 import me.twinkle.listnode.ListNode;
 
-public class StackLinkedListImpl {
-    public static void main(String[] args) {
+public class StackLinkedListImpl<T> implements Stack<T> {
 
-        new StackLinkedListImpl().run();
+    ListNode<T> head;
+    int size = 0;
 
+    @Override
+    public int size() {
+        return size;
     }
 
-    ListNode<Integer> head = new ListNode<>(-1);
-
-    private void run() {
-
-
-        push(3);
-        push(4);
-        System.out.println(pop_());
-        push(6);
-        push(8);
-        System.out.println(pop_());
-        push(9);
-        System.out.println(pop_());
-
-    }
-
-    private Integer pop_() {
-        if (head == null || head.getNumber().equals(-1))
-            return -1;
-        else {
-            Integer val = head.getNumber();
-            head = head.getNext();
-            return val;
+    @Override
+    public void push(T value) {
+        ListNode<T> valueNode = new ListNode<>(value);
+        if (head == null) {
+            head = valueNode;
+            size++;
+            return;
         }
-    }
-
-    private void push(Integer value) {
-        ListNode<Integer> valueNode = new ListNode<>(value);
         valueNode.setNext(head);
         head = valueNode;
+        size++;
+    }
+
+    @Override
+    public void pop() {
+        if (head != null) {
+            head = head.getNext();
+            size--;
+        }
     }
 }
 

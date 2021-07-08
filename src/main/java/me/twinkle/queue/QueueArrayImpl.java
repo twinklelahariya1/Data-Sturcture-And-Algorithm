@@ -19,7 +19,7 @@ public class QueueArrayImpl<T> implements Queue<T> {
     }
 
     @Override
-    public void push(T value) {
+    public void enQueue(T value) {
         if (n == array.length) {
             array = dynamicArray.growArray(array, array.length);
         }
@@ -28,7 +28,7 @@ public class QueueArrayImpl<T> implements Queue<T> {
     }
 
     @Override
-    public void pop() {
+    public void deQueue() {
         array[i] = null;
         i++;
         size--;

@@ -1,47 +1,33 @@
 package me.twinkle.stack;
 
-import me.twinkle.array.DynamicArray;
+import me.twinkle.util.DynamicArray;
 
-public class StackArrayImpl {
+public class StackArrayImpl<T> implements Stack<T> {
 
-    int[] stack = new int[10];
+    DynamicArray<T> dynamicArray = new DynamicArray<>();
+
+    @SuppressWarnings("unchecked")
+    T[] stack = (T[]) new Object[10];
 
     Integer index = 0;
 
-    public static void main(String[] args) {
-
-        new StackArrayImpl().run();
+    @Override
+    public int size() {
+        return index;
     }
 
-    private void run() {
-        stack = push(2);
-        stack = push(3);
-        stack = push(24);
-        index = pop_();
-        stack = push(25);
-        stack = push(5);
-        index = pop_();
-        stack = push(6);
-        index = pop_();
-
-    }
-
-    private int pop_() {
-        if (index == 0)
-            return -1;
-        else {
-            System.out.println(stack[--index]);
-            stack[index] = -1;
-            return index;
-        }
-    }
-
-    private int[] push(int value) {
-        DynamicArray dynamicArray = new DynamicArray();
+    @Override
+    public void push(T value) {
         if (index == stack.length)
             stack = dynamicArray.growArray(stack, index);
-        else
-            stack[index++] = value;
-        return stack;
+        stack[index++] = value;
+
+    }
+
+    @Override
+    public void pop() {
+        if (index != 0) {
+            stack[--index] = null;
+        }
     }
 }

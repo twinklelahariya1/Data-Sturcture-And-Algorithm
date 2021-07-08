@@ -4,7 +4,7 @@ public interface Queue<T> {
 
     int size();
 
-    void push(T value);
+    void enQueue(T value);
 
-    void pop();
+    void deQueue();
 }

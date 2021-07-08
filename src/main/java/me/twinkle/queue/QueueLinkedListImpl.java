@@ -16,7 +16,7 @@ public class QueueLinkedListImpl<T> implements Queue<T> {
     }
 
     @Override
-    public void push(T value) {
+    public void enQueue(T value) {
 
         ListNode<T> valueNode = new ListNode<>(value);
         if (head == null) {
@@ -33,7 +33,7 @@ public class QueueLinkedListImpl<T> implements Queue<T> {
     }
 
     @Override
-    public void pop() {
+    public void deQueue() {
         if (head != null) {
             head = head.getNext();
             size--;
