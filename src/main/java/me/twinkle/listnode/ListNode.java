@@ -1,11 +1,14 @@
 package me.twinkle.listnode;
 
 public class ListNode<T> {
-    private final T number;
+    private T number;
     private ListNode<T> next;
 
     public ListNode(T number) {
         this.number = number;
+    }
+
+    public ListNode() {
     }
 
     public ListNode<T> getNext() {
