@@ -2,13 +2,12 @@ package me.twinkle.queue;
 
 import me.twinkle.listnode.ListNode;
 
-public class LinkedListImpl<T> implements Queue<T> {
+public class QueueLinkedListImpl<T> implements Queue<T> {
 
     ListNode<T> head;
-    ListNode<T> counter;
     int size = 0;
 
-    public LinkedListImpl() {
+    public QueueLinkedListImpl() {
     }
 
     @Override
@@ -18,9 +17,18 @@ public class LinkedListImpl<T> implements Queue<T> {
 
     @Override
     public void push(T value) {
+
         ListNode<T> valueNode = new ListNode<>(value);
+        if (head == null) {
+            head = valueNode;
+            size++;
+            return;
+        }
+        ListNode<T> counter = head;
+        while (counter != null && counter.getNext() != null) {
+            counter = counter.getNext();
+        }
         counter.setNext(valueNode);
-        counter = valueNode;
         size++;
     }
 

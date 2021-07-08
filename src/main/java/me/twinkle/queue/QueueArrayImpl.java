@@ -2,19 +2,20 @@ package me.twinkle.queue;
 
 import me.twinkle.util.DynamicArray;
 
-public class ArrayImpl<T> implements Queue<T> {
+public class QueueArrayImpl<T> implements Queue<T> {
 
     DynamicArray<T> dynamicArray = new DynamicArray<>();
     @SuppressWarnings("unchecked")
     T[] array = (T[]) new Object[10];
     int i = 0;
     int n = 0;
+    int size = 0;
 
-    public ArrayImpl() {
+    public QueueArrayImpl() {
     }
 
     public int size() {
-        return n;
+        return size;
     }
 
     @Override
@@ -23,10 +24,13 @@ public class ArrayImpl<T> implements Queue<T> {
             array = dynamicArray.growArray(array, array.length);
         }
         array[n++] = value;
+        size++;
     }
 
     @Override
     public void pop() {
-        array[--i] = null;
+        array[i] = null;
+        i++;
+        size--;
     }
 }
