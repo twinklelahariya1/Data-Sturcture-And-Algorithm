@@ -22,13 +22,17 @@ public class BFSTraverse implements GraphTraverse {
     private void bfs(Integer root, Graph graph) {
         Queue<Integer> queue = new QueueLinkedListImpl<>();
         queue.enQueue(root);
+        graph.getVisited()[root] = true;
         while (queue.size() != 0) {
-            Integer value = queue.deQueue();
-            System.out.println(value);
-            ListIterator<Integer> integerListIterator = graph.getGraph()[value].listIterator();
+            root = queue.deQueue();
+            System.out.println(root);
+            ListIterator<Integer> integerListIterator = graph.getGraph()[root].listIterator();
             while (integerListIterator.hasNext()) {
-                if (!graph.getVisited()[integerListIterator.next()])
-                    queue.enQueue(integerListIterator.next());
+                Integer value = integerListIterator.next();
+                if (!graph.getVisited()[value]) {
+                    graph.getVisited()[value] = true;
+                    queue.enQueue(value);
+                }
             }
         }
     }
