@@ -8,6 +8,10 @@ public class ListNode<T> {
         this.number = number;
     }
 
+    public T getNumber() {
+        return number;
+    }
+
     public ListNode<T> getNext() {
         return next;
     }

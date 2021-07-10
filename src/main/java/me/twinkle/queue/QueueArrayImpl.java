@@ -28,9 +28,11 @@ public class QueueArrayImpl<T> implements Queue<T> {
     }
 
     @Override
-    public void deQueue() {
+    public T deQueue() {
+        T val = array[i];
         array[i] = null;
         i++;
         size--;
+        return val;
     }
 }

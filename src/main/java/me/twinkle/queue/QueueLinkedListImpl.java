@@ -33,10 +33,13 @@ public class QueueLinkedListImpl<T> implements Queue<T> {
     }
 
     @Override
-    public void deQueue() {
+    public T deQueue() {
         if (head != null) {
+            T val = head.getNumber();
             head = head.getNext();
             size--;
+            return val;
         }
+        return null;
     }
 }

@@ -6,5 +6,5 @@ public interface Queue<T> {
 
     void enQueue(T value);
 
-    void deQueue();
+    T deQueue();
 }
